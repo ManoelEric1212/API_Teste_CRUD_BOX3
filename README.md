@@ -51,3 +51,15 @@ model User {
   @@map("users")
 }
 ```
+
+## gerando os modelos para o banco
+- Necessário fazer uso das migrações
+```
+npx prisma migrate dev --name init
+```
+
+-Para acompanhar o prisma studio 
+
+```
+npx prisma studio
+```
