@@ -39,7 +39,7 @@ Next steps:
 ## Criando modelos no Prisma
 
 ### Model comum
--Exemplo:
+- Exemplo:
 ```js
 model User {
   id String @id @default(uuid())
@@ -52,14 +52,16 @@ model User {
 }
 ```
 
-## gerando os modelos para o banco
+## Gerando os modelos para o banco
 - Necessário fazer uso das migrações
 ```
 npx prisma migrate dev --name init
 ```
 
--Para acompanhar o prisma studio 
+- Para acompanhar o prisma studio 
 
 ```
 npx prisma studio
 ```
+
+## Estruturação do Projeto
