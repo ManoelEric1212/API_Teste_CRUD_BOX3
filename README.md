@@ -66,7 +66,7 @@ npx prisma studio
 
 ## Estruturação do Projeto
 
-![fig1](https://user-images.githubusercontent.com/35776840/228101741-eeb97d90-d951-4f5f-861d-9b1137daf543.png)
+![fig1](https://user-images.githubusercontent.com/35776840/228128097-119d6d0a-d10a-4874-9843-8045450857fb.png)
 
 - modules/users/dtos/useCase
 - dtos (Tipagens do Data Transfer Objects)
