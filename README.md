@@ -65,3 +65,75 @@ npx prisma studio
 ```
 
 ## Estruturação do Projeto
+
+![fig1](https://user-images.githubusercontent.com/35776840/228101741-eeb97d90-d951-4f5f-861d-9b1137daf543.png)
+
+- modules/users/dtos/useCase
+- dtos (Tipagens do Data Transfer Objects)
+- UseCase: 
+
+Para esse tipo de estrutura de projeto, utiliza-se a validação de informações com DTO's bem como caso de usos específico, como por exemplo a criação de um caso de uso CreateUser, atentando para validação da existência ou não de um usuário com as mesmas informações email.
+
+```js
+
+import { User } from "@prisma/client";
+import { prisma } from "../../../../prisma/client";
+import { CreateUserDTO } from "../../dtos/CreateUserDTO";
+
+export class CreateUserUseCase {
+  async execute({name, email}: CreateUserDTO): Promise<User>{
+  // Verifica se o usuário já existe
+  const userAlreadyExists = await prisma.user.findUnique({
+    where : {
+      email: email
+    }
+  });
+  if(userAlreadyExists){
+    // Erro
+  }
+  // Cria o user
+  const user = await prisma.user.create({
+    data:{
+      name,email
+    }
+  });
+  return user;
+}
+}
+
+```
+
+- Criação do Controller e das Rotas
+
+Criar o controller com a utilização da lib express e validação do corpo.
+
+```js
+import {Request, Response} from "express";
+import { CreateUserUseCase } from "./CreateUserUseCase";
+export class CreateUserController {
+  async handle(req: Request, res: Response){
+    const {name, email} = req.body;
+    // Instanciando o caso de uso do create user
+    const createUserCase = new CreateUserUseCase();
+    // Armazenar resultado executando o caso de uso
+    const result = await createUserCase.execute({name, email});
+    return res.status(201).json(result);
+  }
+}
+```
+
+- Criação do Routes
+
+```js
+import { Router } from "express";
+import { CreateUserController } from "../modules/users/useCases/createUser/CreateUserController";
+
+// Instanciando o controller
+const createUserController = new CreateUserController();
+// Instanciando o Router
+const userRoutes = Router();
+// Criando o Post
+userRoutes.post("/", createUserController.handle);
+
+export {userRoutes};
+```
