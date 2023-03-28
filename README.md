@@ -66,7 +66,7 @@ npx prisma studio
 
 ## Estruturação do Projeto
 
-![fig1](https://user-images.githubusercontent.com/35776840/228101741-eeb97d90-d951-4f5f-861d-9b1137daf543.png)
+![fig1](https://user-images.githubusercontent.com/35776840/228128097-119d6d0a-d10a-4874-9843-8045450857fb.png)
 
 - modules/users/dtos/useCase
 - dtos (Tipagens do Data Transfer Objects)
@@ -122,7 +122,7 @@ export class CreateUserController {
 }
 ```
 
-- Criação do Routes
+- Criação do Routes do User
 
 ```js
 import { Router } from "express";
@@ -136,4 +136,21 @@ const userRoutes = Router();
 userRoutes.post("/", createUserController.handle);
 
 export {userRoutes};
+```
+- Criação do arquivo de index.ts(routes)
+
+Esse arquivo é responsável por centralizar todas as rotas de cada modelo de acordo com seu arquivo de Routes
+
+```js
+
+import { Router } from "express";
+import { movieRoutes } from "./movie.routes";
+import { userRoutes } from "./user.routes";
+
+const routes = Router();
+routes.use("/users", userRoutes);
+routes.use("/movies",movieRoutes);
+
+export { routes }
+
 ```
