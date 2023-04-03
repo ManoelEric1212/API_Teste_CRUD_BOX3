@@ -11,7 +11,8 @@ A regra de negócio para esse projeto é bem simples, apenas duas tabelas uma pa
 
 O fluxo desse projeto, também serviu para testar o fluxo de GitFlow. Com suas Branches e padronização de commits.
 
-![gitFlow](https://user-images.githubusercontent.com/35776840/229022366-d7b9cd30-71e7-4187-952a-bb1f48ef2d35.png)
+![gitFlow](https://user-images.githubusercontent.com/35776840/229412233-e333dd38-6dd5-4277-a052-3e79c834b250.png)
+bf-6e20-40b3-bad4-090fc62de155.png)
 
 # Visualização da API Rest
 
