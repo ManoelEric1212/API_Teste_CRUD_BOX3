@@ -3,8 +3,11 @@ import express, { NextFunction, Request, Response } from 'express';
 import { routes } from './routes';
 import { AppError } from "./errors/AppError";
 const app = express();
+import swaggerUI from "swagger-ui-express";
+import swaggerDocument from "../swagger.json"
 
 app.use(express.json()); //cors
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
 app.use(routes);
 app.use((err: Error, request: Request, response: Response, next: NextFunction) => {
   if(err instanceof AppError){
