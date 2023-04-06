@@ -24,6 +24,9 @@ Para a visualização da API construida nesse projeto, utilizou-se do Insomnia c
 
 ![fig2](https://user-images.githubusercontent.com/35776840/230360600-5e7db4d4-8f71-4fdc-946e-0336cdd47928.png)
 
+# Arquitetura do projeto 
+
+![CleanArchitecture](https://user-images.githubusercontent.com/35776840/230363603-53dab8bc-b12a-43e7-9265-57611c7b9b8a.jpg)
 
 ## Setup inicial de configurações
 - Instalar dependências:
