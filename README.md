@@ -20,6 +20,11 @@ Para a visualização da API construida nesse projeto, utilizou-se do Insomnia c
 
 ![insominia](https://user-images.githubusercontent.com/35776840/229022529-674372bf-6e20-40b3-bad4-090fc62de155.png)
 
+# Documentação da API Rest
+
+![fig2](https://user-images.githubusercontent.com/35776840/230360600-5e7db4d4-8f71-4fdc-946e-0336cdd47928.png)
+
+
 ## Setup inicial de configurações
 - Instalar dependências:
 
