@@ -13,7 +13,7 @@ export class CreateMovieRentUseCase {
     if(!movieExists){
       throw new AppError("Movie does not exists!")
     }
-    // Verificar se o filme já está asoociado a um usuário 
+    // Verificar se o filme já está associado a um usuário 
     const movieAlreadyRented = await prisma.movieRent.findFirst({
       where: {
         movieId: movieId
