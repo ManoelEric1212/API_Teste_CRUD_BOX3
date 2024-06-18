@@ -1,10 +1,14 @@
 import { Router } from "express";
-import { movieRoutes } from "./movie.routes";
-import { userRoutes } from "./user.routes";
 
+import { userRoutes } from "./user.routes";
+import { clientRoutes } from "./client.routes";
+import { taskRoutes } from "./tasks.routes";
+import { officeRoutes } from "./office.routes";
 
 const routes = Router();
-routes.use("/users", userRoutes);
-routes.use("/movies",movieRoutes);
+routes.use("/usuarios", userRoutes);
+routes.use("/clientes", clientRoutes);
+routes.use("/tarefas", taskRoutes);
+routes.use("/cargos", officeRoutes);
 
-export { routes }
+export { routes };
